@@ -16,7 +16,24 @@ const menuItems = [
   { text: 'Food On Hand', section: 'food-on-hand-section' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ menuItems, handleMenuClick }) => {
+  return (
+    <List>
+      {menuItems.map((item, index) => (
+        <ListItem
+          component="li"
+          button
+          key={index}
+          onClick={() => handleMenuClick(item.section)}
+        >
+          <ListItemText primary={item.text} />
+        </ListItem>
+      ))}
+    </List>
+  );
+};
+
+const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -49,16 +66,10 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <List>
-          {menuItems.map((item, index) => (
-            <ListItem button key={index} onClick={() => handleMenuClick(item.section)}>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
-        </List>
+        <Navbar menuItems={menuItems} handleMenuClick={handleMenuClick} />
       </Drawer>
     </>
   );
 };
 
-export default Navbar;
+export default App;
