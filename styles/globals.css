@@ -1,0 +1,8 @@
+/*globals.css */
+html, body, #__next {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
+}
