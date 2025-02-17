@@ -1,4 +1,4 @@
 # filepath: /Users/alilholt/lilholtDinnerPlans/my-dinner-planner/netlify.toml
 [build]
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "npm install --legacy-peer-deps --force && npm run build"
   publish = ".next"
