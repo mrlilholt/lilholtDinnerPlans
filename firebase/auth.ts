@@ -56,4 +56,5 @@ export const googleLogin = async () => {
     }
 };
 
-export { auth, User }; // <-- Exporting auth and User so they can be used in other files
+export { auth };
+export type { User }; // <-- Exporting User as a type
