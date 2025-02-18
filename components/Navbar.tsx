@@ -9,6 +9,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import ButtonBase from '@mui/material/ButtonBase';
 
 interface MenuItem {
   text: string;
@@ -30,14 +31,16 @@ const Navbar: FC<NavbarProps> = ({ menuItems, handleMenuClick }) => {
   return (
     <List>
       {menuItems.map((item, index) => (
-        <ListItem
+        <ButtonBase
           component="li"
-          button
           key={index}
           onClick={() => handleMenuClick(item.section)}
+          style={{ width: '100%' }}
         >
-          <ListItemText primary={item.text} />
-        </ListItem>
+          <ListItem>
+            <ListItemText primary={item.text} />
+          </ListItem>
+        </ButtonBase>
       ))}
     </List>
   );
