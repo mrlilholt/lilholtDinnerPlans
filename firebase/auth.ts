@@ -56,4 +56,4 @@ export const googleLogin = async () => {
     }
 };
 
-export { auth, User, logout }; // <-- Exporting auth so it can be used in login.tsx
+export { auth, User }; // <-- Exporting auth and User so they can be used in other files
