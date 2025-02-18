@@ -8,6 +8,14 @@ if (!firebase.apps.length) {
 
 const auth = firebase.auth();
 
+// Define the User type if it’s not already defined
+interface User {
+  uid: string;
+  email: string | null;
+  displayName: string | null;
+  photoURL: string | null;
+}
+
 export const login = async (email: string, password: string) => {
     try {
         const userCredential = await auth.signInWithEmailAndPassword(email, password);
@@ -48,4 +56,4 @@ export const googleLogin = async () => {
     }
 };
 
-export { auth }; // <-- Exporting auth so it can be used in login.tsx
+export { auth, User, logout }; // <-- Exporting auth so it can be used in login.tsx
